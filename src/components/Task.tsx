@@ -1,3 +1,4 @@
+import { Button } from "@nextui-org/react";
 import type { Task } from "../models";
 
 interface TaskProps {
@@ -8,14 +9,16 @@ interface TaskProps {
 
 const Task = ({ task, removeTask, toggleTask }: TaskProps) => {
     return (
-        <>
-            <span className={task.completed ? 'line-through' : ''}>{task.text}</span>
+        <div className="flex items-center justify-between py-2">
+            <span className={task.completed ? 'line-through text-minty-fresh' : 'text-lavender-blush text-base'}>{task.text}</span>
 
-            <button onClick={() => toggleTask(task.id)}>
-                {task.completed ? 'Undo' : 'Complete'}
-            </button>
-            <button onClick={() => removeTask(task.id)}>Delete</button>
-        </>
+            <div className="flex gap-x-2">
+                <Button onClick={() => toggleTask(task.id)}>
+                    {task.completed ? 'Undo' : 'Complete'}
+                </Button>
+                <Button onClick={() => removeTask(task.id)}>Delete</Button>
+            </div>
+        </div>
     )
 }
 

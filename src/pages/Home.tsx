@@ -6,7 +6,7 @@ const Home = () => {
     const { tasks = [], addTask, removeTask, toggleTask } = useTasks();
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4">
             <AddTask addTask={addTask} />
 
             <TaskList tasks={tasks} removeTask={removeTask} toggleTask={toggleTask} />

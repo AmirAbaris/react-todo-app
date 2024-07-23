@@ -9,8 +9,6 @@ const AddTask = ({ addTask }: AddTaskProps) => {
     const [task, setTask] = useState<string>('');
 
     const handleSubmit = (e: React.FormEvent) => {
-        if (!task) return;
-
         e.preventDefault();
         if (task.trim()) {
             addTask(task);
@@ -19,9 +17,13 @@ const AddTask = ({ addTask }: AddTaskProps) => {
 
     };
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setTask(e.target.value);
+    };
+
     return (
-        <form className="flex items-center gap-x-6 px-4" onSubmit={handleSubmit}>
-            <Input type="text" label="Add a new Task" value={task} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTask(e.target.value)} />
+        <form className="flex items-center gap-x-6" onSubmit={handleSubmit}>
+            <Input type="text" label="Add a new Task" value={task} onChange={handleChange} />
             <Button color="secondary" type="submit">
                 Add Task
             </Button>
