@@ -1,7 +1,9 @@
+import AddTask from "../components/AddTask";
+
 const Home = () => {
     return (
-        <div>
-
+        <div className="container mx-auto">
+            {/* <AddTask /> */}
         </div>
     );
 }
