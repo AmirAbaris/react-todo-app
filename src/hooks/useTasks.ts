@@ -1,10 +1,5 @@
 import { useState } from "react";
-
-interface Task {
-    id: number;
-    text: string;
-    completed: boolean;
-}
+import { Task } from "../models";
 
 const useTasks = () => {
     const [tasks, setTasks] = useState<Task[] | undefined>(undefined);
