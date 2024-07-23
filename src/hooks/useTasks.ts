@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Task } from "../models";
 
 const useTasks = () => {
-    const [tasks, setTasks] = useState<Task[] | undefined>(undefined);
+    const [tasks, setTasks] = useState<Task[]>([]);
 
     const addTask = (text: string) => {
         const newTask: Task = {
@@ -10,8 +10,6 @@ const useTasks = () => {
             text,
             completed: false
         };
-        // TODO: might be bug here!
-        if (!tasks) return;
         setTasks([...tasks, newTask]);
     };
 

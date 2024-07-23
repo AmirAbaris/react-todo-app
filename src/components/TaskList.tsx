@@ -10,9 +10,11 @@ const TaskList = ({ tasks, removeTask, toggleTask }: TaskListProps) => {
     return (
         <>
             <h1>Tasks to do - {tasks.length}</h1>
-            {tasks.map((task) => (
-                <Task key={task.id} task={task} removeTask={removeTask} toggleTask={toggleTask} />
-            ))}
+            <div className="flex flex-col">
+                {tasks.map((task) => (
+                    <Task key={task.id} task={task} removeTask={removeTask} toggleTask={toggleTask} />
+                ))}
+            </div>
         </>
     )
 }

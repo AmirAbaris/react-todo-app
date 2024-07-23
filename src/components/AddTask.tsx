@@ -6,7 +6,7 @@ interface AddTaskProps {
 }
 
 const AddTask = ({ addTask }: AddTaskProps) => {
-    const [task, setTask] = useState<string | undefined>(undefined);
+    const [task, setTask] = useState<string>('');
 
     const handleSubmit = (e: React.FormEvent) => {
         if (!task) return;
@@ -14,7 +14,7 @@ const AddTask = ({ addTask }: AddTaskProps) => {
         e.preventDefault();
         if (task.trim()) {
             addTask(task);
-            setTask(undefined);
+            setTask('');
         }
 
     };
