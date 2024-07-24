@@ -1,32 +1,32 @@
-import { useState } from "react";
+// import { useState } from "react";
 
-export interface TaskProps {
-    id: number;
-    text: string;
-    completed: boolean;
-}
+// export interface TaskProps {
+//     id: number;
+//     text: string;
+//     completed: boolean;
+// }
 
-const useTasks = () => {
-    const [tasks, setTasks] = useState<TaskProps[]>([]);
+// const useTasks = () => {
+//     const [tasks, setTasks] = useState<TaskProps[]>([]);
 
-    const addTask = (text: string): void => {
-        const newTask: TaskProps = {
-            id: Date.now(),
-            text,
-            completed: false
-        };
-        setTasks([...tasks, newTask]);
-    };
+//     const addTask = (text: string): void => {
+//         const newTask: TaskProps = {
+//             id: Date.now(),
+//             text,
+//             completed: false
+//         };
+//         setTasks([...tasks, newTask]);
+//     };
 
-    const removeTask = (id: number): void => {
-        setTasks(tasks.filter(task => task.id !== id));
-    };
+//     const removeTask = (id: number): void => {
+//         setTasks(tasks.filter(task => task.id !== id));
+//     };
 
-    const toggleTask = (id: number): void => {
-        setTasks(tasks.map(task => task.id === id ? { ...task, completed: !task.completed } : task));
-    };
+//     const toggleTask = (id: number): void => {
+//         setTasks(tasks.map(task => task.id === id ? { ...task, completed: !task.completed } : task));
+//     };
 
-    return { tasks, addTask, removeTask, toggleTask };
-}
+//     return { tasks, addTask, removeTask, toggleTask };
+// }
 
-export default useTasks;
+// export default useTasks;

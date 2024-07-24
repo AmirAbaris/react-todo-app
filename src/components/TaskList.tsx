@@ -1,12 +1,8 @@
+import { useTasks } from "../context/TaskContext";
 import Task from "./Task";
 
-interface TaskListProps {
-    tasks: Array<{ id: number, text: string, completed: boolean }>;
-    removeTask: (id: number) => void;
-    toggleTask: (id: number) => void;
-}
-
-const TaskList = ({ tasks, removeTask, toggleTask }: TaskListProps) => {
+const TaskList = () => {
+    const { tasks } = useTasks();
     const pendingTasks = tasks.filter(task => !task.completed);
     const completedTasks = tasks.filter(task => task.completed);
 
@@ -16,8 +12,6 @@ const TaskList = ({ tasks, removeTask, toggleTask }: TaskListProps) => {
             <Task
                 key={task.id}
                 task={task}
-                removeTask={removeTask}
-                toggleTask={toggleTask}
             />
         ))
     );

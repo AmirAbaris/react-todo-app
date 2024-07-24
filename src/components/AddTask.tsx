@@ -1,11 +1,9 @@
 import { Button, Input } from "@nextui-org/react";
 import { useState } from "react";
+import { useTasks } from "../context/TaskContext";
 
-interface AddTaskProps {
-    addTask: (task: string) => void;
-}
-
-const AddTask = ({ addTask }: AddTaskProps) => {
+const AddTask = () => {
+    const { addTask } = useTasks();
     const [task, setTask] = useState<string>('');
 
     const handleSubmit = (e: React.FormEvent): void => {
