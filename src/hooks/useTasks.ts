@@ -1,11 +1,16 @@
 import { useState } from "react";
-import { Task } from "../models";
+
+export interface TaskProps {
+    id: number;
+    text: string;
+    completed: boolean;
+}
 
 const useTasks = () => {
-    const [tasks, setTasks] = useState<Task[]>([]);
+    const [tasks, setTasks] = useState<TaskProps[]>([]);
 
-    const addTask = (text: string) => {
-        const newTask: Task = {
+    const addTask = (text: string): void => {
+        const newTask: TaskProps = {
             id: Date.now(),
             text,
             completed: false
@@ -13,15 +18,15 @@ const useTasks = () => {
         setTasks([...tasks, newTask]);
     };
 
-    const removeTask = (id: number) => {
+    const removeTask = (id: number): void => {
         setTasks(tasks.filter(task => task.id !== id));
     };
 
-    const toggleTask = (id: number) => {
+    const toggleTask = (id: number): void => {
         setTasks(tasks.map(task => task.id === id ? { ...task, completed: !task.completed } : task));
     };
 
     return { tasks, addTask, removeTask, toggleTask };
-};
+}
 
 export default useTasks;

@@ -8,7 +8,7 @@ interface AddTaskProps {
 const AddTask = ({ addTask }: AddTaskProps) => {
     const [task, setTask] = useState<string>('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent): void => {
         e.preventDefault();
         if (task.trim()) {
             addTask(task);
@@ -17,7 +17,7 @@ const AddTask = ({ addTask }: AddTaskProps) => {
 
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setTask(e.target.value);
     };
 

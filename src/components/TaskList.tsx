@@ -1,17 +1,17 @@
-import type { Task as TaskType } from "../models";
 import Task from "./Task";
 
 interface TaskListProps {
-    tasks: TaskType[];
+    tasks: Array<{ id: number, text: string, completed: boolean }>;
     removeTask: (id: number) => void;
     toggleTask: (id: number) => void;
 }
+
 const TaskList = ({ tasks, removeTask, toggleTask }: TaskListProps) => {
     const pendingTasks = tasks.filter(task => !task.completed);
     const completedTasks = tasks.filter(task => task.completed);
 
     // helper function to render tasks
-    const renderTasks = (taskList: TaskType[]) => (
+    const renderTasks = (taskList: Array<{ id: number, text: string, completed: boolean }>) => (
         taskList.map(task => (
             <Task
                 key={task.id}

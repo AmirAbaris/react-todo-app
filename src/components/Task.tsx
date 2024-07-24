@@ -1,8 +1,7 @@
 import { Button } from "@nextui-org/react";
-import type { Task } from "../models";
 
 interface TaskProps {
-    task: Task;
+    task: { id: number, text: string, completed: boolean };
     removeTask: (id: number) => void;
     toggleTask: (id: number) => void;
 }
